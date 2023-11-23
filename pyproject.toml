@@ -9,6 +9,9 @@ requires-python = ">=3.10"
 dynamic = ["readme"]
 version = "2023.11"
 license = { text = "MIT" }
+dependencies = [
+    "python-dateutil; python_version < '3.11'",
+]
 
 [tool.setuptools.packages]
 find = { namespaces = false }

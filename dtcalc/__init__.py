@@ -1,11 +1,18 @@
 """Time calculation parsing."""
 
 import re
+import sys
 from datetime import datetime, timedelta
 from enum import Enum
 from typing import ClassVar
 
 __version__ = "2023.11.0"
+
+if sys.version_info < (3, 11):
+    import dateutil.parser
+    isoparse = dateutil.parser.isoparse
+else:
+    isoparse = datetime.fromisoformat
 
 
 class TokenType(Enum):
@@ -97,7 +104,7 @@ class DatetimeLiteral(Literal):
     _unit = UnitType.DATETIME
 
     def _evaluate(self) -> datetime:
-        return datetime.fromisoformat(self.text)
+        return isoparse(self.text)
 
 
 class NumberLiteral(Literal):
