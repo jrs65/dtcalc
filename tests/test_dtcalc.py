@@ -93,7 +93,13 @@ def test_eval():
         datetime(1990, 1, 10, 2, 3, 4, tzinfo=timezone(timedelta(hours=5))),
     )
     assert c.evaluate() == datetime(
-        1990, 2, 9, 2, 3, 4, tzinfo=timezone(timedelta(hours=5)),
+        1990,
+        2,
+        9,
+        2,
+        3,
+        4,
+        tzinfo=timezone(timedelta(hours=5)),
     )
 
     c = dtcalc.parse("now + 15d * 2")

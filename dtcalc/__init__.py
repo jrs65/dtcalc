@@ -10,6 +10,7 @@ __version__ = "2023.11.0"
 
 if sys.version_info < (3, 11):
     import dateutil.parser
+
     isoparse = dateutil.parser.isoparse
 else:
     isoparse = datetime.fromisoformat
@@ -366,7 +367,8 @@ class DTCalc:
         self.identifiers = identifiers
 
     def evaluate(
-        self, **identifiers: dict[str, datetime],
+        self,
+        **identifiers: dict[str, datetime],
     ) -> datetime | timedelta | float:
         """Perform the calculation.
 
