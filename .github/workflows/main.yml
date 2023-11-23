@@ -1,11 +1,11 @@
-name: prym-ci-build
+name: dtcalc-ci-build
 on:
   pull_request:
     branches:
-    - master
+    - main
   push:
     branches:
-    - master
+    - main
 
 jobs:
 
