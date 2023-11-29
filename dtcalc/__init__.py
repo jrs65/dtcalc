@@ -378,7 +378,8 @@ class DTCalc:
             Keyword arguments setting any unknown identifiers.
         """
         for name, value in identifiers.items():
-            self.identifiers[name].set_value(value)
+            if name in self.identifiers:
+                self.identifiers[name].set_value(value)
 
         return self.root.evaluate()
 
